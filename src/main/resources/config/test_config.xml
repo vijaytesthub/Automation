@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="CERT1: iOS Smoke Suite" >
+<!-- parallel="tests" thread-count="7"  -->
+	<listeners>
+		<listener class-name="com.quantum.listerners.QuantumReportiumListener" />
+	</listeners>
+
+	<parameter name="driver.name" value="appiumDriver" />
+	<parameter name="appium.additional.capabilities" 
+	value="{'automationName':'PerfectoMobile','platformName':'iOS','driver.class':'io.appium.java_client.ios.IOSDriver','applicationName':'Beta Cert'}" />
+	<parameter name="env.resources" value="resources/qa/ios;resources/users/ios/cert1"></parameter>
+	<parameter name="step.provider.pkg" value="com.heb.automation.common;com.heb.automation.ios"></parameter>
+	<parameter name="wd.command.listeners" value="com.heb.automation.common.IOSPerfectoDriverListener"></parameter>
+	<parameter name="we.command.listeners" value="com.heb.automation.common.IOSWebElementListener"></parameter>
+<!-- 	<parameter name="scenario.file.loc" value="scenarios/" /> -->
+<!-- 	<parameter name="app.name" value="Beta Cert"></parameter> -->
+
+
+
+	<test verbose="2" name="iOS: Browse module">
+		<parameter name="driver.capabilities.deviceName" value="CF3603CF0E9F74B4C67E30B0148E873E2A7365E0"></parameter>
+		<groups>
+			<run>	
+				<include name="PerfectoTestBDD" />			
+			</run>
+		</groups>
+		<classes>
+			<class name="com.qmetry.qaf.automation.step.client.text.BDDTestFactory" />
+		</classes>
+	</test>
+
+<!-- 	,'appPackage':'com.heb.hebmobile'} -->
+</suite> <!-- iOS SMOKE suite -->
